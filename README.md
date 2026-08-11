@@ -15,6 +15,20 @@ Terminal-native AI companion with animated ASCII face, voice output, and persona
 
 ## Quick start
 
+### Direct USAGE
+Download the latest release and open gargi.exe
+
+If Windows blocks the executable:
+1. Open Windows Security.
+2. Go to App & browser control.
+3. Open Smart App Control settings.
+4. Turn it off.
+5. Launch the application again.
+6. It will open in CMD/Powershell.
+
+   
+### Use by Source Code
+
 ```bash
 git clone https://github.com/lakshyabuilds/gargi.git
 cd gargi

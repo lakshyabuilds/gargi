@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build PyInstaller package
+        run: python build.py pyinstaller
+
+      - name: Zip PyInstaller package
+        shell: pwsh
+        run: Compress-Archive -Path dist_exe/pyinstaller/gargi -DestinationPath dist_exe/gargi-windows-pyinstaller.zip -Force
+
+      - name: Build Nuitka executable
+        run: python build.py nuitka
+
+      - name: Write checksums
+        shell: pwsh
+        run: |
+          $assets = @(
+            "dist_exe/gargi-windows-pyinstaller.zip",
+            "dist_exe/nuitka/gargi.exe"
+          )
+          $lines = foreach ($asset in $assets) {
+            $hash = (Get-FileHash $asset -Algorithm SHA256).Hash.ToLower()
+            "$hash  $(Split-Path $asset -Leaf)"
+          }
+          $lines | Set-Content dist_exe/SHA256SUMS.txt
+
+      - name: Create or update GitHub release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = $env:GITHUB_REF_NAME
+          $assets = @(
+            "dist_exe/gargi-windows-pyinstaller.zip",
+            "dist_exe/nuitka/gargi.exe",
+            "dist_exe/SHA256SUMS.txt"
+          )
+          gh release view $tag *> $null
+          if ($LASTEXITCODE -eq 0) {
+            gh release upload $tag $assets --clobber
+          } else {
+            gh release create $tag $assets --title "GARGI $tag" --generate-notes
+          }

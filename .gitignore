@@ -1,0 +1,56 @@
+# ─── Python ──────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+*.whl
+
+# ─── Executable builds ───────────────────────────────────────────────
+dist_exe/
+*.spec
+*.build/
+*.dist/
+*.onefile-build/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.venv/
+venv/
+env/
+
+# ─── GARGI local state ───────────────────────────────────────────────
+# never commit user config or API keys
+.gargi/
+
+# ─── Node / web landing page ─────────────────────────────────────────
+node_modules/
+dist/
+.vite/
+*.log
+npm-debug.log*
+
+# ─── Editors ─────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ─── Secrets ─────────────────────────────────────────────────────────
+.env
+.env.local
+*.key
+*.pem
+config.json

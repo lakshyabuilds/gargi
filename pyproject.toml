@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gargi"
+version = "1.2.0"
+description = "Terminal AI companion with animated face, voice, and personality"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Lakshya (Techiral)", email = "lakshya.automate@gmail.com"}]
+keywords = ["ai", "terminal", "tui", "textual", "nvidia-nim", "voice"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "textual>=0.52.0",
+    "rich>=13.7.0",
+    "openai>=1.30.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pyinstaller",
+    "nuitka",
+]
+
+[project.scripts]
+gargi = "gargi_app.tui:main"
+
+[project.urls]
+Homepage = "https://github.com/lakshyabuilds/gargi"
+Repository = "https://github.com/lakshyabuilds/gargi"
+Issues = "https://github.com/lakshyabuilds/gargi/issues"
+
+[tool.setuptools.packages.find]
+include = ["gargi_app*"]

@@ -61,3 +61,4 @@ jobs:
           } else {
             gh release create $tag $assets --title "GARGI $tag" --generate-notes
           }
+          

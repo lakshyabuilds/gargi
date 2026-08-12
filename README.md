@@ -1,4 +1,5 @@
 # GARGI
+![HackaTime](https://hackatime.hackclub.com/api/v1/badge/U0BNR4WBM6W/lakshyabuilds/gargi)
 
 **Generally A Really Good Interface**
 

@@ -25,6 +25,9 @@ If Windows blocks the executable:
 4. Turn it off.
 5. Launch the application again.
 6. It will open in CMD/Powershell.
+7. Use /help to get context, /setup for adding the API key.
+8. Get the API key (free, no credit card) from build.nvidia.com.
+9. And, get your agent running.
 
    
 ### Use by Source Code

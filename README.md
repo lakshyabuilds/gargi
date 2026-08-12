@@ -83,12 +83,18 @@ gargi/
 
 Keyboard: `Ctrl+Q` quit · `Ctrl+R` reset · `Ctrl+T` voice · `Ctrl+S` stop · `Ctrl+F` cycle face · `Esc` focus input.
 
-## Tech
+## Screenshots
+<img src="https://github.com/lakshyabuilds/gargi/blob/main/screenshots/1p1UBL46DH.png"/>
+<img src="https://github.com/lakshyabuilds/gargi/blob/main/screenshots/gargi_l5eyePyaUR.png"/>
+<img src="https://github.com/lakshyabuilds/gargi/blob/main/screenshots/7UfZEwf1ud.png"/>
+<img src="https://github.com/lakshyabuilds/gargi/blob/main/screenshots/gargi_wySetXj0oW.png"/>
+
+## Tech Stack
 
 - **UI**: Textual (terminal UI framework)
 - **AI**: NVIDIA NIM (free LLM API, OpenAI-compatible)
 - **Voice**: Windows SAPI / macOS say / espeak
-- **Pure Python** — no Rust, no Docker, no native deps
+- **Pure Python**, no Rust, no Docker, no native deps
 
 Default model: `nvidia/llama-3.3-nemotron-super-49b-v1.5`. Switch with `/model`.
 
